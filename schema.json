@@ -1,0 +1,105 @@
+{
+  "title": "JFrog Applications Configuration schema",
+  "description": "The configuration file allows you to refine your scan behavior according to your specific project needs and structures, leading to better and more accurate scan results.",
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["version", "modules"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "JFrog Applications Config version"
+    },
+    "modules": {
+      "type": "array",
+      "description": "An array of modules.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the module."
+          },
+          "source_root": {
+            "type": "string",
+            "default": ".",
+            "description": "Directories to exclude from Scanning Across All Scanners (optional)."
+          },
+          "exclude_patterns": {
+            "type": "array",
+            "description": "Directories to exclude from Scanning Across All Scanners (optional).",
+            "items": { "type": "string" }
+          },
+          "exclude_scanners": {
+            "type": "array",
+            "description": "Scanners to exclude from JFrog Advanced Security (optional).",
+            "items": { "type": "string" }
+          },
+          "scanners": {
+            "type": "object",
+            "description": "An object containing scanner configurations.",
+            "properties": {
+              "secrets": {
+                "type": "object",
+                "description": "Scanner configuration for secrets scanner.",
+                "properties": {
+                  "working_dirs": {
+                    "type": "array",
+                    "description": "Working directories Specific to the secrets scanner (Relative to source_root)",
+                    "items": { "type": "string" }
+                  },
+                  "exclude_patterns": {
+                    "type": "array",
+                    "description": "Additional exclude patterns for this scanner (optional).",
+                    "items": { "type": "string" }
+                  }
+                }
+              },
+              "iac": {
+                "type": "object",
+                "description": "Scanner configuration for infrastructure as code (IAC).",
+                "properties": {
+                  "working_dirs": {
+                    "type": "array",
+                    "description": "Working directories Specific to IaC (Relative to source_root)",
+                    "items": { "type": "string" }
+                  },
+                  "exclude_patterns": {
+                    "type": "array",
+                    "description": "Additional exclude patterns for this scanner (optional).",
+                    "items": { "type": "string" }
+                  }
+                }
+              },
+              "sast": {
+                "type": "object",
+                "description": "Configuration for Static Application Security Testing (SAST).",
+                "properties": {
+                  "working_dirs": {
+                    "type": "array",
+                    "description": "Working directories Specific to SAST (Relative to source_root)",
+                    "items": { "type": "string" }
+                  },
+                  "exclude_patterns": {
+                    "type": "array",
+                    "description": "Additional exclude patterns for this scanner (optional).",
+                    "items": { "type": "string" }
+                  },
+                  "language": {
+                    "type": "string",
+                    "description": "Specify the Programming Language for SAST (optional)."
+                  },
+                  "excluded_rules": {
+                    "type": "array",
+                    "description": "List of specific scan rules to exclude from the scan (optional).",
+                    "items": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
