@@ -12,16 +12,6 @@ jobs:
     # "frogbot" GitHub environment can approve the pull request to be scanned.
     environment: frogbot
     steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-
-      # Install prerequisites
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.20.x
-
       - uses: jfrog/frogbot@v2
         env:
           # [Mandatory]
@@ -39,3 +29,16 @@ jobs:
           # [Optional, default: "."]
           # Relative path to the root of the project in the Git repository
           JF_WORKING_DIR: "go"
+
+          # [Optional]
+          # Configure the SMTP server to enable Frogbot to send emails with detected secrets in pull request scans.
+          # SMTP server URL including should the relevant port: (Example: smtp.server.com:8080)
+          JF_SMTP_SERVER: ${{ secrets.JF_SMTP_SERVER }}
+
+          # [Mandatory if JF_SMTP_SERVER is set]
+          # The username required for authenticating with the SMTP server.
+          JF_SMTP_PASSWORD: ${{ secrets.JF_SMTP_PASSWORD }}
+
+          # [Mandatory if JF_SMTP_SERVER is set]
+          # The password associated with the username required for authentication with the SMTP server.
+          JF_SMTP_USER: ${{ secrets.JF_SMTP_USER }}

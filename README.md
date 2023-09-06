@@ -1,6 +1,6 @@
 # JFrog Applications Config
 
-The source code scanning configuration file is aimed to define the rules and settings for our source code scanning tools. Its purpose is to streamline and standardize the configuration process for source code scanning across JFrog products.
+The JFrog Applications Config schema is used to define the configuration schema used by some for the JFrog applications, such as JFrog CLI, JFrog Frogbot and the JFrog IDE integrations. This configuration schema is used to define the rules and settings for the JFrog source code scanning tools.
 
 By consolidating the relevant settings, rules and policies into a single file, developers and security teams can easily manage and update scanning configurations, ensuring consistent and effective code analysis.
 

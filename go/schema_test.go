@@ -96,7 +96,6 @@ func TestJFrogYamlSchema(t *testing.T) {
 
 	// Validate bad schema
 	validateYamlSchema(t, schemaLoader, filepath.Join("testdata", "badschemas", "bad-schema.yml"), "Invalid type. Expected: string, given: integer")
-
 }
 
 // Validate all yml files in the given directory against the input schema

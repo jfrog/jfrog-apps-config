@@ -1,4 +1,4 @@
-name: "Frogbot Scan and Fix"
+name: "Frogbot Scan Repository"
 on:
   schedule:
     # The repository will be scanned once a day at 00:00 GMT.
@@ -13,16 +13,8 @@ jobs:
     strategy:
       matrix:
         # The repository scanning will be triggered periodically on the following branches.
-        branch: ["master"]
+        branch: ["main"]
     steps:
-      - uses: actions/checkout@v3
-
-      # Install prerequisites
-      - name: Setup Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.20.x
-
       - uses: jfrog/frogbot@v2
         env:
           # [Mandatory]
