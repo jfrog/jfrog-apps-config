@@ -1,0 +1,14 @@
+version: "1.0"
+
+modules:
+  - name: Sast
+    scanners:
+      sast:
+        language: java
+        working_dirs:
+          - "src/module1"
+          - "src/module2"
+        exclude_patterns:
+          - "src/module1/test"
+        excluded_rules:
+          - xss-injection

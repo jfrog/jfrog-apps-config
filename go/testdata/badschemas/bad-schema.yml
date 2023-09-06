@@ -1,0 +1,9 @@
+version: "1.0"
+
+modules:
+  - name: NoScanners
+    source_root: 123
+    exclude_patterns:
+      - "docs/"
+    exclude_scanners:
+      - secrets

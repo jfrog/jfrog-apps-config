@@ -1,0 +1,15 @@
+version: "1.0"
+
+modules:
+  - name: AllScanners
+    scanners:
+      sast:
+        language: java
+        working_dirs:
+          - "src/module1"
+      iac:
+        working_dirs:
+          - "src/module2"
+      secrets:
+        working_dirs:
+          - "src/module3"
