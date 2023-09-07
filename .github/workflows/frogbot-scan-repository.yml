@@ -28,7 +28,3 @@ jobs:
           # [Mandatory]
           # The GitHub token automatically generated for the job
           JF_GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-          # [Optional, default: "."]
-          # Relative path to the root of the project in the Git repository
-          JF_WORKING_DIR: "go"
