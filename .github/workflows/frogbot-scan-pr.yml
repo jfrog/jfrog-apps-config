@@ -26,10 +26,6 @@ jobs:
           # The GitHub token automatically generated for the job
           JF_GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-          # [Optional, default: "."]
-          # Relative path to the root of the project in the Git repository
-          JF_WORKING_DIR: "go"
-
           # [Optional]
           # Configure the SMTP server to enable Frogbot to send emails with detected secrets in pull request scans.
           # SMTP server URL including should the relevant port: (Example: smtp.server.com:8080)

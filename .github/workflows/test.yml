@@ -18,5 +18,4 @@ jobs:
 
       # Run tests
       - name: Tests
-        run: go test -v -race
-        working-directory: go
+        run: go test -v -race ./...

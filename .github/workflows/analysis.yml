@@ -23,7 +23,6 @@ jobs:
       - name: Static Code Analysis
         uses: golangci/golangci-lint-action@v3
         with:
-          working-directory: go
           args: |
             --timeout 5m --out-${NO_FUTURE}format colored-line-number --enable errcheck,gosimple,govet,ineffassign,staticcheck,typecheck,unused,gocritic,asasalint,asciicheck,errchkjson,exportloopref,forcetypeassert,makezero,nilerr,unparam,unconvert,wastedassign,usestdlibvars
 
@@ -40,5 +39,4 @@ jobs:
       - name: Install gosec
         run: curl -sfL https://raw.githubusercontent.com/securego/gosec/master/install.sh | sh -s -- -b $(go env GOPATH)/bin
       - name: Run gosec
-        working-directory: go
         run: gosec -tests ./...
