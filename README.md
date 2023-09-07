@@ -35,11 +35,11 @@ modules:
         language: java
         # [Optional] Working directories specific to SAST (Relative to source_root)
         working_dirs:
-          - "src/module1"
-          - "src/module2"
+          - "dir1"
+          - "dir2"
         # [Optional] Additional exclude patterns for this scanner
         exclude_patterns:
-          - "src/module1/test"
+          - "dir1/test/**"
         # [Optional] List of specific scan rules to exclude from the scan
         excluded_rules:
           - xss-injection
@@ -48,19 +48,19 @@ modules:
       secrets:
         # [Optional] Working directories specific to the secret scanner (Relative to source_root)
         working_dirs:
-          - "src/module1"
-          - "src/module2"
+          - "dir1"
+          - "dir2"
         # [Optional] Additional exclude patterns for this scanner
         exclude_patterns:
-          - "src/module1/test"
+          - "dir1/test/**"
 
       # [Optional] Configuration for Infrastructure as Code scan (IaC)
       iac:
         # [Optional] Working directories specific to IaC (Relative to source_root)
         working_dirs:
-          - "src/module1"
-          - "src/module2"
+          - "dir1"
+          - "dir2"
         # [Optional] Additional exclude patterns for this Scanner
         exclude_patterns:
-          - "src/module1/test"
+          - "dir1/test/**"
 ```
