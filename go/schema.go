@@ -28,9 +28,10 @@ type Module struct {
 }
 
 type Scanners struct {
-	Secrets *Scanner     `yaml:"secrets,omitempty"`
-	Iac     *Scanner     `yaml:"iac,omitempty"`
-	Sast    *SastScanner `yaml:"sast,omitempty"`
+	MaliciousCode *Scanner     `yaml:"malicious_code,omitempty"`
+	Secrets       *Scanner     `yaml:"secrets,omitempty"`
+	Iac           *Scanner     `yaml:"iac,omitempty"`
+	Sast          *SastScanner `yaml:"sast,omitempty"`
 }
 
 type Scanner struct {
